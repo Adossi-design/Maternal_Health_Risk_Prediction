@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "maternal-risk"
+version = "1.0.0"
+description = "Maternal health risk classification service (Random Forest) with a FastAPI inference API."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Adossi Fred William" }]
+keywords = ["machine-learning", "healthcare", "fastapi", "classification"]
+
+dependencies = [
+    "fastapi>=0.136",
+    "uvicorn[standard]>=0.48",
+    "scikit-learn>=1.8",
+    "joblib>=1.3",
+    "numpy>=2.0",
+    "pandas>=2.0",
+    "ucimlrepo>=0.0.7",
+    "pydantic>=2.7",
+    "pydantic-settings>=2.2",
+    "python-multipart>=0.0.9",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "httpx>=0.27",
+    "ruff>=0.5",
+    "mypy>=1.10",
+]
+
+[project.scripts]
+maternal-risk-train = "maternal_risk.train:main"
+maternal-risk-serve = "maternal_risk.api:run"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+maternal_risk = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "C4", "SIM"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_unused_ignores = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
