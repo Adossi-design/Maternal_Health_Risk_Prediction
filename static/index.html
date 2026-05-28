@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maternal Health Risk Prediction</title>
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="card">
+    <header class="hero">
+      <span class="badge" aria-hidden="true">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="25" cy="17" r="8" fill="#fff"/>
+          <path fill="#fff" d="M12 54c0-12 5.5-20.5 14-22.5 2.2-.5 4.4-.4 6.4.3l-2.6 7.7c-1.2-.4-2.5-.4-3.7-.1C20.9 41 17 47.5 17 54z"/>
+          <circle cx="41" cy="33" r="6.5" fill="#fff"/>
+          <path fill="#fff" d="M31 48c0-5.5 4.5-10 10-10s10 4.5 10 10z"/>
+        </svg>
+      </span>
+      <div class="hero-text">
+        <h1>Maternal Health Risk Prediction</h1>
+        <p class="subtitle">Enter six vital signs to estimate the maternal health risk level.</p>
+      </div>
+    </header>
+
+    <form id="predict-form">
+      <div id="fields" class="fields"><!-- inputs injected from /api/v1/meta --></div>
+      <div class="actions">
+        <button type="submit" id="submit-btn">
+          <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Predict risk
+        </button>
+      </div>
+    </form>
+
+    <section id="result" class="result hidden">
+      <div id="risk-banner" class="risk-banner">
+        <div class="risk-head">
+          <span class="risk-label">Predicted risk</span>
+          <span id="risk-value" class="risk-value">—</span>
+        </div>
+        <span id="risk-confidence" class="risk-confidence"></span>
+      </div>
+      <div id="prob-bars" class="prob-bars"></div>
+
+      <div id="observations" class="observations">
+        <h2 class="obs-title">Readings outside the normal range</h2>
+        <ul id="obs-list" class="obs-list"></ul>
+      </div>
+    </section>
+
+    <p id="error" class="error hidden"></p>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
