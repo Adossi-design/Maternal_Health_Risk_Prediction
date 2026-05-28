@@ -1,0 +1,159 @@
+{
+  "name": "Maternal Health Risk Classifier",
+  "package_version": "1.0.0",
+  "artifact_schema_version": 2,
+  "created_utc": "2026-05-30T22:25:11.530806+00:00",
+  "estimator": "Pipeline(StandardScaler -> RandomForestClassifier)",
+  "hyperparameters": {
+    "n_estimators": 200,
+    "max_depth": null,
+    "class_weight": "balanced",
+    "random_state": 42
+  },
+  "features": [
+    "Age",
+    "SystolicBP",
+    "DiastolicBP",
+    "BS",
+    "BodyTemp",
+    "HeartRate"
+  ],
+  "classes": [
+    "high risk",
+    "low risk",
+    "mid risk"
+  ],
+  "dataset": {
+    "source": "UCI id=863",
+    "n_samples": 1014,
+    "signature_sha256": "5a6e240d834ad203a94d418f8e41a1ed5c39ef90c35473181dad67c1e3d69e5d"
+  },
+  "environment": {
+    "python": "3.11.9",
+    "scikit_learn": "1.8.0",
+    "numpy": "2.3.0"
+  },
+  "metrics": {
+    "cv_macro_f1_mean": 0.8326041181059276,
+    "cv_macro_f1_std": 0.016979645085496108,
+    "validation": {
+      "accuracy": 0.8421052631578947,
+      "macro_f1": 0.8432419953829168,
+      "confusion_matrix": [
+        [
+          35,
+          4,
+          2
+        ],
+        [
+          2,
+          52,
+          7
+        ],
+        [
+          3,
+          6,
+          41
+        ]
+      ],
+      "classification_report": {
+        "high risk": {
+          "precision": 0.875,
+          "recall": 0.8536585365853658,
+          "f1-score": 0.8641975308641975,
+          "support": 41.0
+        },
+        "low risk": {
+          "precision": 0.8387096774193549,
+          "recall": 0.8524590163934426,
+          "f1-score": 0.8455284552845529,
+          "support": 61.0
+        },
+        "mid risk": {
+          "precision": 0.82,
+          "recall": 0.82,
+          "f1-score": 0.82,
+          "support": 50.0
+        },
+        "accuracy": 0.8421052631578947,
+        "macro avg": {
+          "precision": 0.8445698924731183,
+          "recall": 0.8420391843262695,
+          "f1-score": 0.8432419953829168,
+          "support": 152.0
+        },
+        "weighted avg": {
+          "precision": 0.8423440152801358,
+          "recall": 0.8421052631578947,
+          "f1-score": 0.8421666745907225,
+          "support": 152.0
+        }
+      }
+    },
+    "test": {
+      "accuracy": 0.8366013071895425,
+      "macro_f1": 0.844428750784683,
+      "confusion_matrix": [
+        [
+          37,
+          1,
+          3
+        ],
+        [
+          0,
+          49,
+          12
+        ],
+        [
+          2,
+          7,
+          42
+        ]
+      ],
+      "classification_report": {
+        "high risk": {
+          "precision": 0.9487179487179487,
+          "recall": 0.9024390243902439,
+          "f1-score": 0.925,
+          "support": 41.0
+        },
+        "low risk": {
+          "precision": 0.8596491228070176,
+          "recall": 0.8032786885245902,
+          "f1-score": 0.8305084745762712,
+          "support": 61.0
+        },
+        "mid risk": {
+          "precision": 0.7368421052631579,
+          "recall": 0.8235294117647058,
+          "f1-score": 0.7777777777777778,
+          "support": 51.0
+        },
+        "accuracy": 0.8366013071895425,
+        "macro avg": {
+          "precision": 0.8484030589293746,
+          "recall": 0.84308237489318,
+          "f1-score": 0.844428750784683,
+          "support": 153.0
+        },
+        "weighted avg": {
+          "precision": 0.8425815670397713,
+          "recall": 0.8366013071895425,
+          "f1-score": 0.8382528340903215,
+          "support": 153.0
+        }
+      }
+    },
+    "accuracy": 0.8366013071895425,
+    "macro_f1": 0.844428750784683
+  },
+  "feature_importances": {
+    "BS": 0.33413833226450346,
+    "SystolicBP": 0.19149378464687739,
+    "Age": 0.16088490214026635,
+    "DiastolicBP": 0.133116003931946,
+    "HeartRate": 0.11114251295756117,
+    "BodyTemp": 0.06922446405884568
+  },
+  "intended_use": "Educational decision-support demonstration. Not a medical device; not for clinical use without validation and regulatory clearance."
+}
