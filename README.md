@@ -7,7 +7,7 @@ A scaled Random Forest is trained on the
 and served through a layered **FastAPI** application with a lightweight
 HTML/JS frontend.
 
-The original exploratory analysis — EDA, classical models, and a neural network
+The original exploratory analysis: EDA, classical models, and a neural network
 implemented from scratch, remains in `Assignment1_AdossiFredWilliam (1).ipynb`.
 This repository productionises the strongest model from that study.
 
